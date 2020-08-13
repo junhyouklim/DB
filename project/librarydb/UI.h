@@ -1,9 +1,6 @@
 #pragma once
-#include <iostream>
-#include <string>
+#include "Common.h"
 #include "Handler.h"
-
-using namespace std;
 
 class UI
 {
@@ -17,16 +14,17 @@ public:
 	int mainMenu()
 	{
 		int num;
-		cout << "³¯Â¥ :" << h.Getdate() << endl;
+		cout << "ë‚ ì§œ :" << h.Getdate() << endl;
 		cout << "======================" << endl;
-		cout << " 1. µµ¼­ °ü¸®" << endl;
-		cout << " 2. Çà»ç °ü¸®" << endl;
-		cout << " 3. ¹İ³³ °ü¸®" << endl;
-		cout << " 4. ¸¶°¨" << endl;
-		cout << " 5. Á¾·á" << endl;
+		cout << " 1. ë„ì„œ ê´€ë¦¬" << endl;
+		cout << " 2. í–‰ì‚¬ ê´€ë¦¬" << endl;
+		cout << " 3. ë°˜ë‚© ê´€ë¦¬" << endl;
+		cout << " 4. ë§ˆê°" << endl;
+		cout << " 5. ì¢…ë£Œ" << endl;
 		cout << "======================" << endl;
-		cout << "ÀÔ·Â: ";
+		cout << "ì…ë ¥: ";
 		cin >> num;
+		cin.ignore();
 		return num;
 	}
 	void mainRun()
@@ -39,37 +37,37 @@ public:
 			{
 			case 1:
 			{
-				//µµ¼­ °ü¸® 
+				//ë„ì„œ ê´€ë¦¬ 
 				bookRun();
 				break;
 			}
 			case 2:
 			{
-				//Çà»ç °ü¸®
+				//í–‰ì‚¬ ê´€ë¦¬
 				eventRun();
 				break;
 			}
 			case 3:
 			{
-				//´ë¿© °ü¸®
+				//ëŒ€ì—¬ ê´€ë¦¬
 				RentalRun();
 				break;
 			}
 			case 4:
 			{
-				//¸¶°¨
+				//ë§ˆê°
 				h.Deadline();
 				break;
 			}
 			case 5:
 			{
-				//Á¾·á
-				cout << "¾È³çÈ÷ °¡½Ê½Ã¿À." << endl;
+				//ì¢…ë£Œ
+				cout << "ì•ˆë…•íˆ ê°€ì‹­ì‹œì˜¤." << endl;
 				return;
 			}
 			default:
 			{
-				cout << "¹üÀ§ ¹ş¾î³²" << endl;
+				cout << "ë²”ìœ„ ë²—ì–´ë‚¨" << endl;
 				Sleep(1000);
 				break;
 			}
@@ -80,20 +78,21 @@ public:
 	{
 		int num;
 		cout << "=======================" << endl;
-		cout << "      ´ë¿© °ü¸®" << endl;
+		cout << "      ëŒ€ì—¬ ê´€ë¦¬" << endl;
 		cout << "=======================" << endl;
-		cout << " 1. Ã¥ ¹İ³³" << endl;
-		cout << " 2. ´ë¿© Á¶È¸" << endl;
-		cout << " 3. ¹İ³³ Á¶È¸" << endl;
-		cout << " 4. µÚ·Î°¡±â" << endl;
+		cout << " 1. ì±… ë°˜ë‚©" << endl;
+		cout << " 2. ëŒ€ì—¬ ì¡°íšŒ" << endl;
+		cout << " 3. ë°˜ë‚© ì¡°íšŒ" << endl;
+		cout << " 4. ë’¤ë¡œê°€ê¸°" << endl;
 		cout << "-----------------------" << endl;
-		cout << "ÀÔ·Â: ";
+		cout << "ì…ë ¥: ";
 		cin >> num;
+		cin.ignore();
 		return num;
 	}
 	void RentalRun()
 	{
-		while(1)
+		while (1)
 		{
 			system("cls");
 			int num = selectRentalMenu();
@@ -107,6 +106,7 @@ public:
 			case 2:
 			{
 				h.RentalSearch();
+				system("pause");
 				break;
 			}
 			case 3:
@@ -118,28 +118,76 @@ public:
 				return;
 			default:
 			{
-				cout << "¹üÀ§ ¹ş¾î³²" << endl;
+				cout << "ë²”ìœ„ ë²—ì–´ë‚¨" << endl;
 				Sleep(1000);
 				break;
 			}
 			}
 		}
-		
+
+	}
+
+	int selectSearch()
+	{
+		int num;
+		cout << "=======================" << endl;
+		cout << "      ì¡°íšŒ ì„ íƒ" << endl;
+		cout << "=======================" << endl;
+		cout << " 1. ì „ì²´ ì¡°íšŒ" << endl;
+		cout << " 2. ì´ë¦„ ì¡°íšŒ" << endl;
+		cout << " 3. ë’¤ë¡œê°€ê¸°" << endl;
+		cout << "-----------------------" << endl;
+		cout << "ì…ë ¥: ";
+		cin >> num;
+		cin.ignore();
+		return num;
+	}
+	void searchRun()
+	{
+		while (1)
+		{
+			system("cls");
+			int num = selectSearch();
+			switch (num)
+			{
+			case 1:
+			{
+				h.BookAllSearch();
+				system("pause");
+				break;
+			}
+			case 2:
+			{
+				h.BookSearch();
+				system("pause");
+				break;
+			}
+			case 3:
+				return;
+			default:
+			{
+				cout << "ë²”ìœ„ ë²—ì–´ë‚¨" << endl;
+				Sleep(1000);
+				break;
+			}
+			}
+		}
 	}
 	int selectBookMenu()
 	{
 		int num;
 		cout << "=======================" << endl;
-		cout << "      µµ¼­ °ü¸®" << endl;
+		cout << "      ë„ì„œ ê´€ë¦¬" << endl;
 		cout << "=======================" << endl;
-		cout << " 1. Ã¥ µî·Ï" << endl;
-		cout << " 2. Ã¥ »èÁ¦" << endl;
-		cout << " 3. Ã¥ Á¶È¸" << endl;
-		cout << " 4. Ã¥ ´ë¿©" << endl;
-		cout << " 5. µÚ·Î°¡±â" << endl;
+		cout << " 1. ì±… ë“±ë¡" << endl;
+		cout << " 2. ì±… ì‚­ì œ" << endl;
+		cout << " 3. ì±… ì¡°íšŒ" << endl;
+		cout << " 4. ì±… ëŒ€ì—¬" << endl;
+		cout << " 5. ë’¤ë¡œê°€ê¸°" << endl;
 		cout << "-----------------------" << endl;
-		cout << "ÀÔ·Â: ";
+		cout << "ì…ë ¥: ";
 		cin >> num;
+		cin.ignore();
 		return num;
 	}
 	void bookRun()
@@ -162,7 +210,7 @@ public:
 			}
 			case 3:
 			{
-				h.BookSearch();
+				searchRun();
 				break;
 			}
 			case 4:
@@ -174,7 +222,7 @@ public:
 				return;
 			default:
 			{
-				cout << "¹üÀ§ ¹ş¾î³²" << endl;
+				cout << "ë²”ìœ„ ë²—ì–´ë‚¨" << endl;
 				Sleep(1000);
 				break;
 			}
@@ -185,15 +233,16 @@ public:
 	{
 		int num;
 		cout << "=======================" << endl;
-		cout << "      Çà»ç °ü¸®" << endl;
+		cout << "      í–‰ì‚¬ ê´€ë¦¬" << endl;
 		cout << "=======================" << endl;
-		cout << " 1. Çà»ç µî·Ï" << endl;
-		cout << " 2. Çà»ç »èÁ¦" << endl;
-		cout << " 3. Çà»ç Á¶È¸" << endl;
-		cout << " 4. µÚ·Î °¡±â" << endl;
+		cout << " 1. í–‰ì‚¬ ë“±ë¡" << endl;
+		cout << " 2. í–‰ì‚¬ ì‚­ì œ" << endl;
+		cout << " 3. í–‰ì‚¬ ì¡°íšŒ" << endl;
+		cout << " 4. ë’¤ë¡œ ê°€ê¸°" << endl;
 		cout << "-----------------------" << endl;
-		cout << "ÀÔ·Â: ";
+		cout << "ì…ë ¥: ";
 		cin >> num;
+		cin.ignore();
 		return num;
 	}
 	void eventRun()
@@ -207,7 +256,7 @@ public:
 			case 1:
 			{
 				h.EventRegistration();
-				
+
 				break;
 			}
 			case 2:
@@ -224,7 +273,7 @@ public:
 				return;
 			default:
 			{
-				cout << "¹üÀ§ ¹ş¾î³²" << endl;
+				cout << "ë²”ìœ„ ë²—ì–´ë‚¨" << endl;
 				Sleep(1000);
 				break;
 			}
