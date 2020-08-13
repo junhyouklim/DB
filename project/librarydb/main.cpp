@@ -1,9 +1,6 @@
-#include <iostream>
-#include <mysql.h>
+#include "Common.h"
 #include "Handler.h"
 #include "UI.h"
-
-using namespace std;
 
 int main()
 {
@@ -14,11 +11,11 @@ int main()
 	return 0;
 }
 /*
-c_str()ÇÔ¼ö´Â ¹®ÀÚ¿­ ¹è¿­ÀÇ ½ÃÀÛ ÁÖ¼Ò°ªÀ» ¸®ÅÏÇÔ
+c_str()í•¨ìˆ˜ëŠ” ë¬¸ìì—´ ë°°ì—´ì˜ ì‹œì‘ ì£¼ì†Œê°’ì„ ë¦¬í„´í•¨
 int mysql_query(MYSQL* mysql, const char* query)
-	query°¡ Æ÷ÀÎÆ® ÇÏ´Â Äõ¸®¸¦ ¼öÇàÇÑ´Ù. queryÀÇ ³¡Àº NULL ¹®ÀÚÀÌ´Ù.
-	¼º°øÀûÀ¸·Î query¸¦ ¼öÇàÇÏ¿´À¸¸é 0À» ¸®ÅÏÇÑ´Ù.
-unsigned int mysql_num_fields(MYSQL_RES*result) È¤Àº
+	queryê°€ í¬ì¸íŠ¸ í•˜ëŠ” ì¿¼ë¦¬ë¥¼ ìˆ˜í–‰í•œë‹¤. queryì˜ ëì€ NULL ë¬¸ìì´ë‹¤.
+	ì„±ê³µì ìœ¼ë¡œ queryë¥¼ ìˆ˜í–‰í•˜ì˜€ìœ¼ë©´ 0ì„ ë¦¬í„´í•œë‹¤.
+unsigned int mysql_num_fields(MYSQL_RES*result) í˜¹ì€
 unsigned int mysql_num_fields(MYSQL* mysql)
-	ÇÊµåÀÇ ¼ö¸¦ ¸®ÅÏÇÑ´Ù.
+	í•„ë“œì˜ ìˆ˜ë¥¼ ë¦¬í„´í•œë‹¤.
 */
