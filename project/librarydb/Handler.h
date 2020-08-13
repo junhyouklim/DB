@@ -1,9 +1,6 @@
 #pragma once
+#include "Common.h"
 
-#define MYSQLIP "10.10.20.229"
-#define DATE "2020-08-12"
-
-using namespace std;
 class Handler
 {
 private:
@@ -16,23 +13,24 @@ public:
 	Handler()
 	{
 		conn = mysql_init(NULL);
-		date = DATE;
 	}
 	string Getdate() const;
-	void BookRegistration(); //Ã¥µî·Ï
-	void EventRegistration(); //Çà»ç µî·Ï
-	void BookDelete(); //Ã¥»èÁ¦
-	void EventDelete(); //Çà»ó »èÁ¦
-	void BookSearch(); //Ã¥ Á¶È¸
-	void EventSearch(); //Çà»ç Á¶È¸
-	void BookRental(); //Ã¥ ´ë¿©
-	void BookReturn(); //Ã¥ ¹İ³³
-	void RentalSearch(); //´ë¿© Á¶È¸
-	void ReturnSearch(); //¹İ³³ Á¶È¸
-	void Deadline(); //¸¶°¨
-	void IncreaseLate_fee(); //¿¬Ã¼·á Áõ°¡
-	void IncreaseDay(); //ÇÏ·ç Áõ°¡
-	void Loadmysql();	//MYSQL ¼­¹ö ºÒ·¯¿À±â
-	void error_check(); //¿¡·¯Ã¼Å©
-	void SetInfo(); //ID, password ¼³Á¤
+	void BookRegistration(); //ì±…ë“±ë¡
+	void EventRegistration(); //í–‰ì‚¬ ë“±ë¡
+	void BookDelete(); //ì±…ì‚­ì œ
+	void EventDelete(); //í–‰ìƒ ì‚­ì œ
+	void BookAllSearch(); //ì±… ì „ì²´ ì¡°íšŒ
+	void BookSearch(); //ì±… ì´ë¦„ ì¡°íšŒ
+	void EventSearch(); //í–‰ì‚¬ ì¡°íšŒ
+	void BookRental(); //ì±… ëŒ€ì—¬
+	void BookReturn(); //ì±… ë°˜ë‚©
+	void RentalSearch(); //ëŒ€ì—¬ ì¡°íšŒ
+	void ReturnSearch(); //ë°˜ë‚© ì¡°íšŒ
+	void Deadline(); //ë§ˆê°
+	void IncreaseLate_fee(); //ì—°ì²´ë£Œ ì¦ê°€
+	void IncreaseDay(); //í•˜ë£¨ ì¦ê°€
+	void Loadmysql();	//MYSQL ì„œë²„ ë¶ˆëŸ¬ì˜¤ê¸°
+	void error_check(); //ì—ëŸ¬ì²´í¬
+	void SetInfo(); //ID, password ì„¤ì •
+	~Handler(); //mysql close
 };
